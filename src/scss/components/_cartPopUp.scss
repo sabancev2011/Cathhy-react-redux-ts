@@ -7,6 +7,8 @@
     z-index: 999;
     background-color: #fff;
     border: 1px solid #d8d8d8;
+    max-height: 270px;
+    overflow: auto;
     &__list {
         border-bottom: 1px solid #e5e5de;
     }
