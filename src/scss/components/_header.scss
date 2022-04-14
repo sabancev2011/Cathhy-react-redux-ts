@@ -1,0 +1,32 @@
+.header {
+    width: 100%;
+    padding: 50px 0;
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__header__logo {
+        cursor: pointer;
+    }
+    &__cart {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        max-width: 320px;
+        width: 100%;
+    }
+    &__cartBtn {
+        font-family: "Roboto", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 500;
+        svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+    }
+
+}

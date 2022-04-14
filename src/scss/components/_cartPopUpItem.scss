@@ -1,0 +1,31 @@
+.cartPopUpItem {
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    &__img {
+        width: 50px;
+        max-height: 85px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
+    &__name {
+        width: 170px;
+        text-transform: uppercase;
+    }
+    &__count,
+    &__price {
+        color: #6d6d6d;
+    }
+    &__closeIcon {
+        width: 20px;
+        height: 20px;
+        fill: #fff;
+        background-color: #d9534ff5;
+        cursor: pointer;
+    }
+}
