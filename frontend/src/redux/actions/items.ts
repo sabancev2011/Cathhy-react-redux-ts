@@ -8,7 +8,7 @@ export const setSort = (sort: SortType) => ({ type: ItemsActionTypes.SET_SORT, p
 
 export const fetchItems = (filter: FilterType, sort: SortType) => {
     return async (dispatch: Dispatch<ItemsActions>) => {
-        const { data } = await axios.get<IItem[]>(`http://${process.env.REACT_APP_API_URL}/items?${filter !== 'all' ? `type=${filter}&` : ''}_sort=${sort}`);
+        const { data } = await axios.get<IItem[]>(`https://${process.env.REACT_APP_API_URL}/items?${filter !== 'all' ? `type=${filter}&` : ''}_sort=${sort}`);
         dispatch({ type: ItemsActionTypes.SET_ITEMS, payload: data })
         dispatch({ type: ItemsActionTypes.SET_LOADED, payload: true })
     }
