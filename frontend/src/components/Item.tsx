@@ -1,36 +1,32 @@
 import { Link } from "react-router-dom"
 import { CartItemType } from "../types/cart"
-
+import { IItem } from "../types/items"
 
 interface ItemProps {
-    id: number
-    img: string
-    name: string
-    price: number
-    type: string
+    item: IItem
     onAddCartItem: (cartItem: CartItemType) => void
 }
 
-const Item: React.FC<ItemProps> = ({ id, img, name, price, type, onAddCartItem }) => {
+const Item: React.FC<ItemProps> = ({ item, onAddCartItem }) => {
     return (
         <div className="item">
             <div className="item__imgWrapper">
-                <Link to={`/itemCard/${id}`}><img src={img} alt="item" className="item__img" /></Link>
+                <Link to={`/itemCard/${item.id}`}><img src={item.img} alt="item" className="item__img" /></Link>
                 <button onClick={() => {
                     onAddCartItem({
-                        id: id,
-                        name: name,
-                        img: img,
-                        price: +price,
+                        id: item.id,
+                        name: item.name,
+                        img: item.img,
+                        price: Number(item.price),
                         quantity: 1,
-                        totalItemPrice: +price
+                        totalItemPrice: Number(item.price)
                     });
                 }} className="item__addCartBtn">add to cart</button>
             </div>
             <div className="item__inner">
-                <p className="item__type">{type}</p>
-                <p className="item__name">{name}</p>
-                <span className="item__price">${price}</span>
+                <p className="item__type">{item.type}</p>
+                <p className="item__name">{item.name}</p>
+                <span className="item__price">${item.price}</span>
             </div>
         </div>
     )

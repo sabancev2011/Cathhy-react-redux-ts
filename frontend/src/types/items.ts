@@ -1,13 +1,14 @@
 export enum ItemsActionTypes {
     SET_ITEMS = "SET_ITEMS",
     SET_FILTER = "SET_FILTER",
-    SET_SORT = "SET_SORT"
+    SET_SORT = "SET_SORT",
+    SET_LOADED = "SET_LOADED"
 }
 
 export type FilterType = 'all' | 'mobile' | 'notebook' | 'display'
 export type SortType = 'default' | 'name' | 'price'
 
-export interface Item {
+export interface IItem {
     id: number
     type: string
     img: string
@@ -17,11 +18,10 @@ export interface Item {
 }
 
 export interface ItemsState {
-    items: Item[]
+    items: IItem[]
     isLoaded: boolean
     filter: FilterType
     sort: SortType
-
 }
 
 export interface SetFilterAction {
@@ -36,7 +36,12 @@ export interface SetSortAction {
 
 export interface SetItemsAction {
     type: ItemsActionTypes.SET_ITEMS
-    payload: Item[]
+    payload: IItem[]
 }
 
-export type ItemsActions = SetItemsAction | SetSortAction | SetFilterAction 
+export interface SetLoadedAction {
+    type: ItemsActionTypes.SET_LOADED
+    payload: boolean
+}
+
+export type ItemsActions = SetItemsAction | SetSortAction | SetFilterAction | SetLoadedAction 
